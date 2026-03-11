@@ -10,7 +10,7 @@ function App() {
         justifyContent: 'space-between', 
         alignItems: 'center',
         borderBottom: '1px solid var(--surface-border)',
-        background: 'rgba(10, 10, 15, 0.8)',
+        background: 'rgba(255, 240, 246, 0.8)', // SUDAH DIGANTI JADI PINK SOFT TRANSPARAN
         backdropFilter: 'blur(10px)',
         position: 'sticky',
         top: 0,
@@ -27,7 +27,8 @@ function App() {
             justifyContent: 'center',
             fontWeight: 'bold',
             fontSize: '20px',
-            boxShadow: '0 4px 14px 0 rgba(139, 92, 246, 0.39)'
+            color: 'white',
+            boxShadow: '0 4px 14px 0 rgba(255, 126, 182, 0.39)'
           }}>
             S
           </div>
@@ -39,7 +40,7 @@ function App() {
 
       <main style={{ padding: '40px 20px', flex: 1 }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '40px' }} className="animate-fade-in">
-          <h2 style={{ fontSize: '42px', marginBottom: '16px', lineHeight: 1.2 }}>
+          <h2 style={{ fontSize: '42px', marginBottom: '16px', lineHeight: 1.2, color: 'var(--text-primary)' }}>
             Decentralized File Storage <br/>
             Powered by <span className="text-gradient">Shelby</span>
           </h2>
@@ -49,7 +50,10 @@ function App() {
           </p>
         </div>
 
-        <FileUpload />
+        {/* Kotak upload ini akan mengikuti desain cantik di index.css kita */}
+        <div className="glass-panel" style={{ maxWidth: '700px', margin: '0 auto', padding: '20px' }}>
+           <FileUpload />
+        </div>
       </main>
 
       <footer style={{ 
