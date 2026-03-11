@@ -1,24 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap');
 
 :root {
-  /* Shelby Soft-Aura Palette */
-  --bg-primary: #0a0510;         /* Hitam Ungu Sangat Gelap */
-  --bg-secondary: #150b25;       /* Ungu Gelap */
-  --text-primary: #ffffff;
-  --text-secondary: #d1d1e0;
+  /* TEMA SHELBY: PINK SOFT & UNGU MUDA */
+  --bg-primary: #fff0f6;       /* Pink sangat muda (Soft Pink) */
+  --bg-secondary: #ffffff;     /* Putih bersih untuk kontras */
   
-  /* The Secret Colors: Pink, White, Light Purple */
-  --shelby-pink: #ff7eb6;        /* Pink Khas */
-  --shelby-purple: #9b5de5;      /* Ungu Muda/Medium */
-  --shelby-light: #f1f1f1;       /* Putih Lembut */
-  --shelby-accent: #ee9ca7;      /* Pink Soft */
+  /* Warna Teks (Dibuat gelap agar kontras dengan background pink) */
+  --text-primary: #2d1b2e;     /* Ungu gelap tua */
+  --text-secondary: #6b5a6b;   /* Abu-abu ungu */
   
-  --surface-color: rgba(255, 255, 255, 0.05);
-  --surface-border: rgba(255, 255, 255, 0.12);
+  /* Warna Khas */
+  --shelby-pink: #ff7eb6;      /* Pink Khas Shelby */
+  --shelby-purple: #b794f4;    /* Ungu Muda (Light Purple) */
   
-  /* Gradient yang lebih "Cair" */
+  /* Border & Panel */
+  --surface-color: rgba(255, 255, 255, 0.7);
+  --surface-border: rgba(183, 148, 244, 0.3); /* Border ungu tipis */
+  
+  /* Gradient untuk elemen spesial */
   --gradient-main: linear-gradient(135deg, var(--shelby-pink), var(--shelby-purple));
-  --gradient-glow: linear-gradient(135deg, rgba(255, 126, 182, 0.3), rgba(155, 93, 229, 0.3));
 }
 
 * {
@@ -28,43 +28,34 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif; /* Font yang lebih modern dari Inter */
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  
-  /* Efek Aura di Background */
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(255, 126, 182, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(155, 93, 229, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(15, 10, 25, 1) 0%, rgba(10, 5, 16, 1) 100%);
+  /* Menghapus semua gradient hitam lama agar bersih */
+  background-image: none; 
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
-  letter-spacing: -0.03em;
-  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
-/* Glassmorphism Baru: Lebih Bersih & Terang */
+/* Glassmorphism Baru: Lebih Terang & Elegan */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--surface-border);
   border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(183, 148, 244, 0.1); /* Bayangan ungu lembut */
 }
 
-.glass-panel:hover {
-  border: 1px solid rgba(255, 126, 182, 0.3); /* Border nyala pink saat dihover */
-}
-
-/* Buttons dengan efek Glow */
+/* Tombol Warna Ungu Muda sesuai permintaan */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -80,58 +71,50 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: var(--gradient-main);
+  background-color: var(--shelby-purple); /* Ungu Muda */
   color: white;
-  box-shadow: 0 8px 25px -5px rgba(255, 126, 182, 0.5);
+  box-shadow: 0 4px 15px rgba(183, 148, 244, 0.4);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 30px -5px rgba(255, 126, 182, 0.6);
+  background-color: #a782ec; /* Ungu sedikit lebih gelap saat hover */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(183, 148, 244, 0.5);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--shelby-light);
-  border: 1.5px solid var(--shelby-purple);
+  color: var(--shelby-purple);
+  border: 2px solid var(--shelby-purple);
 }
 
 .btn-outline:hover {
-  background: rgba(155, 93, 229, 0.1);
-  border-color: var(--shelby-pink);
+  background: rgba(183, 148, 244, 0.1);
 }
 
-/* Teks Gradasi Pink-Ungu */
+/* Tulisan Shelby dengan Gradasi Pink-Ungu */
 .text-gradient {
-  background: linear-gradient(to right, #ffffff, var(--shelby-pink), var(--shelby-purple));
+  background: linear-gradient(to right, var(--shelby-pink), var(--shelby-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
 }
 
-/* Scrollbar Estetik */
-::-webkit-scrollbar {
-  width: 6px;
+/* Input & Form (Agar senada) */
+input, textarea {
+  background: white;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 12px;
+  color: var(--text-primary);
 }
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+
+/* Scrollbar Ungu */
+::-webkit-scrollbar {
+  width: 8px;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--shelby-purple);
   border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--shelby-pink);
-}
-
-/* Animasi Halus */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
 }
