@@ -41,7 +41,7 @@ function App() {
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '40px' }} className="animate-fade-in">
           <h2 style={{ fontSize: '42px', marginBottom: '16px', lineHeight: 1.2 }}>
             Decentralized File Storage <br/>
-            Powered by <span className="text-gradient">Shelby Protocol</span>
+            Powered by <span className="text-gradient">Shelby</span>
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '18px', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
             Upload your files securely to the fastest decentralized storage network. 
