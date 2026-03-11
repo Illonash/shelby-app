@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap');
 
 :root {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #13141f;
+  /* Shelby Soft-Aura Palette */
+  --bg-primary: #0a0510;         /* Hitam Ungu Sangat Gelap */
+  --bg-secondary: #150b25;       /* Ungu Gelap */
   --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
+  --text-secondary: #d1d1e0;
   
-  --brand-primary: #3b82f6;
-  --brand-secondary: #8b5cf6;
-  --brand-accent: #f43f5e;
+  /* The Secret Colors: Pink, White, Light Purple */
+  --shelby-pink: #ff7eb6;        /* Pink Khas */
+  --shelby-purple: #9b5de5;      /* Ungu Muda/Medium */
+  --shelby-light: #f1f1f1;       /* Putih Lembut */
+  --shelby-accent: #ee9ca7;      /* Pink Soft */
   
-  --surface-color: rgba(30, 30, 42, 0.6);
-  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-border: rgba(255, 255, 255, 0.12);
   
-  --gradient-main: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-  --gradient-glow: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.5));
+  /* Gradient yang lebih "Cair" */
+  --gradient-main: linear-gradient(135deg, var(--shelby-pink), var(--shelby-purple));
+  --gradient-glow: linear-gradient(135deg, rgba(255, 126, 182, 0.3), rgba(155, 93, 229, 0.3));
 }
 
 * {
@@ -24,105 +28,110 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Font yang lebih modern dari Inter */
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  
+  /* Efek Aura di Background */
   background-image: 
-    radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 10% 20%, rgba(255, 126, 182, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(155, 93, 229, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(15, 10, 25, 1) 0%, rgba(10, 5, 16, 1) 100%);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  font-weight: 700;
 }
 
-/* Glassmorphism Utilities */
+/* Glassmorphism Baru: Lebih Bersih & Terang */
 .glass-panel {
-  background: var(--surface-color);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--surface-border);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
 }
 
-/* Buttons */
+.glass-panel:hover {
+  border: 1px solid rgba(255, 126, 182, 0.3); /* Border nyala pink saat dihover */
+}
+
+/* Buttons dengan efek Glow */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 14px;
+  font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .btn-primary {
   background: var(--gradient-main);
   color: white;
-  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.39);
+  box-shadow: 0 8px 25px -5px rgba(255, 126, 182, 0.5);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.23);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px -5px rgba(255, 126, 182, 0.6);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--surface-border);
+  color: var(--shelby-light);
+  border: 1.5px solid var(--shelby-purple);
 }
 
 .btn-outline:hover {
-  background: rgba(255,255,255,0.05);
+  background: rgba(155, 93, 229, 0.1);
+  border-color: var(--shelby-pink);
 }
 
-/* Text Gradients */
+/* Teks Gradasi Pink-Ungu */
 .text-gradient {
-  background: var(--gradient-main);
+  background: linear-gradient(to right, #ffffff, var(--shelby-pink), var(--shelby-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 800;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Scrollbar Estetik */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--shelby-purple);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--shelby-pink);
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.5s ease forwards;
+/* Animasi Halus */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
-@keyframes pulse-glow {
-  0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
-}
-
-/* Links */
-.footer-link {
-  color: var(--text-primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.footer-link:hover {
-  color: var(--brand-primary);
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
