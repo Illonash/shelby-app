@@ -6,7 +6,7 @@ function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
-  // Fungsi untuk menangani pengiriman (simulasi)
+  // Fungsi untuk menangani pengiriman pesan (simulasi)
   const handleSendMessage = () => {
     if (inputValue.trim()) {
       alert(`Shelby received: ${inputValue}\n(Connection to AI coming soon!)`);
@@ -29,8 +29,21 @@ function App() {
         zIndex: 100
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'var(--gradient-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '20px', color: 'white' }}>S</div>
-          {/* KEMBALI KE NAMA AWAL */}
+          <div style={{ 
+            width: '40px', 
+            height: '40px', 
+            borderRadius: '10px', 
+            background: 'var(--gradient-main)', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            fontWeight: 'bold', 
+            fontSize: '20px', 
+            color: 'white',
+            boxShadow: '0 4px 14px 0 rgba(255, 126, 182, 0.39)'
+          }}>
+            S
+          </div>
           <h1 style={{ fontSize: '24px', margin: 0 }} className="text-gradient">Shelby App</h1>
         </div>
         <WalletConnect />
@@ -42,7 +55,6 @@ function App() {
             Decentralized File Storage <br/>
             Powered by <span className="text-gradient">Shelby</span>
           </h2>
-          {/* KEMBALI KE KALIMAT ASLI KAMU */}
           <p style={{ color: 'var(--text-secondary)', fontSize: '18px', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
             Upload your files securely to the fastest decentralized storage network. 
             Connect your Aptos wallet to get started.
@@ -64,9 +76,9 @@ function App() {
           <div className="chat-header">
             <span>Shelby Assistant</span>
           </div>
-          <div className="chat-messages">
+          <div className="chat-messages" style={{ display: 'flex', flexDirection: 'column' }}>
             <div className="message-bot">
-              Hi there! I'm Shelby. How can I help you with your files on Antigravity today?
+              Hi there! I'm Shelby assistant. How can I help you with your files on Shelby today?
             </div>
           </div>
           <div className="chat-input-area">
@@ -75,17 +87,26 @@ function App() {
               placeholder="Ask me anything..." 
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') handleSendMessage();
+              }}
             />
-            <button className="btn-primary" onClick={handleSendMessage} style={{ padding: '5px 15px', borderRadius: '15px' }}>Send</button>
+            <button className="btn-primary" onClick={handleSendMessage} style={{ padding: '5px 15px', borderRadius: '15px' }}>
+              Send
+            </button>
           </div>
         </div>
       )}
 
-      <footer style={{ padding: '24px', textAlign: 'center', color: 'var(--text-secondary)', borderTop: '1px solid var(--surface-border)', marginTop: 'auto' }}>
+      <footer style={{ 
+        padding: '24px', 
+        textAlign: 'center', 
+        color: 'var(--text-secondary)', 
+        borderTop: '1px solid var(--surface-border)', 
+        marginTop: 'auto' 
+      }}>
         <p>
           Built by <a href="https://x.com/illonashanum" target="_blank" rel="noopener noreferrer" className="footer-link">illonashanum</a>, 
-          {/* POWERED BY SHELBY KEMBALI DISINI */}
           powered by <a href="https://x.com/shelbyserves" target="_blank" rel="noopener noreferrer" className="footer-link">Shelby</a>
         </p>
       </footer>
