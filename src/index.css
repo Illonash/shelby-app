@@ -143,3 +143,14 @@ div[class*="dropzone"] svg {
   color: var(--shelby-purple) !important;
   filter: drop-shadow(0 0 5px rgba(183, 148, 244, 0.3));
 }
+/* Ini akan memaksa bagian dalam FileUpload menjadi ungu & cantik */
+[class*="FileUpload"], .upload-container, .dropzone {
+  background: white !important;
+  border: 2px dashed var(--shelby-purple) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Mengubah warna teks di dalam kotak upload */
+[class*="FileUpload"] p, [class*="FileUpload"] span {
+  color: var(--text-secondary) !important;
+}
