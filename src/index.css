@@ -118,3 +118,28 @@ input, textarea {
   background: var(--shelby-purple);
   border-radius: 10px;
 }
+/* Mempercantik Kotak Upload Drag & Drop */
+.upload-area, 
+div[class*="dropzone"], 
+div[class*="upload"] {
+  background: rgba(255, 255, 255, 0.5) !important; /* Putih transparan lembut */
+  border: 2px dashed var(--shelby-purple) !important; /* Garis putus-putus ungu muda */
+  border-radius: 20px !important;
+  transition: all 0.3s ease !important;
+  color: var(--text-primary) !important;
+}
+
+/* Efek saat kursor menyentuh kotak upload */
+.upload-area:hover, 
+div[class*="dropzone"]:hover {
+  background: rgba(183, 148, 244, 0.1) !important; /* Pendaran ungu sangat tipis */
+  border-color: var(--shelby-pink) !important; /* Garis berubah pink saat dihover */
+  transform: scale(1.01);
+}
+
+/* Mengubah warna ikon awan (upload) menjadi ungu */
+.upload-area svg, 
+div[class*="dropzone"] svg {
+  color: var(--shelby-purple) !important;
+  filter: drop-shadow(0 0 5px rgba(183, 148, 244, 0.3));
+}
