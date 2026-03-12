@@ -2,9 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import WalletConnect from './components/WalletConnect';
 import FileUpload from './components/FileUpload';
 
-// 1. IMPOR LOGO KAMU DI SINI
-// Pastikan file 'shelby-logo.png' ada di dalam folder 'src'
-import shelbyLogo from './shelby-logo.png'; 
+// Mengacu pada folder assets sesuai struktur GitHub kamu
+import shelbyLogo from './assets/shelby-logo.png'; 
 
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -15,6 +14,7 @@ function App() {
   
   const chatEndRef = useRef<HTMLDivElement>(null);
 
+  // Fungsi auto-scroll agar pesan terbaru selalu terlihat
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -22,11 +22,13 @@ function App() {
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
 
+    // Tambah pesan user
     const userMsg = { role: 'user', text: inputValue };
     setMessages(prev => [...prev, userMsg]);
     const question = inputValue.toLowerCase();
     setInputValue('');
 
+    // Simulasi respon Shelby (Bahasa Inggris)
     setTimeout(() => {
       let botResponse = "I'm here to help! Feel free to ask me anything about storing your files on our decentralized network.";
       
@@ -48,31 +50,27 @@ function App() {
 
   return (
     <>
-      <header style={{ padding: '20px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--surface-border)', background: 'rgba(255, 240, 246, 0.8)', backdropFilter: 'blur(10px)', position: 'sticky', top: 0, zIndex: 100 }}>
+      <header style={{ 
+        padding: '20px 40px', 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center',
+        borderBottom: '1px solid var(--surface-border)',
+        background: 'rgba(255, 240, 246, 0.8)',
+        backdropFilter: 'blur(10px)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100
+      }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          
-          {/* --- BAGIAN LOGO YANG DIPERBARUI (MENGGANTI HURUF S) --- */}
-          <div style={{ 
-            width: '40px', 
-            height: '40px', 
-            borderRadius: '10px', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            overflow: 'hidden' // Agar gambar tidak keluar dari kotak jika ada border-radius
-          }}>
+          {/* LOGO DENGAN PATH ASSETS */}
+          <div style={{ width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img 
               src={shelbyLogo} 
               alt="Shelby Logo" 
-              style={{ 
-                width: '100%',     /* Memaksa lebar gambar jadi 40px */
-                height: '100%',    /* Memaksa tinggi gambar jadi 40px */
-                objectFit: 'contain' /* Memastikan gambar tidak gepeng, proporsi tetap terjaga */
-              }} 
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
             />
           </div>
-          {/* ------------------------------------------------------ */}
-
           <h1 style={{ fontSize: '24px', margin: 0 }} className="text-gradient">Shelby App</h1>
         </div>
         <WalletConnect />
@@ -89,11 +87,13 @@ function App() {
             Connect your Aptos wallet to get started.
           </p>
         </div>
+
         <div className="glass-panel" style={{ maxWidth: '700px', margin: '0 auto', padding: '20px' }}>
            <FileUpload />
         </div>
       </main>
 
+      {/* FLOATING CHAT ASSISTANT */}
       <div className="chat-trigger" onClick={() => setIsChatOpen(!isChatOpen)}>
         {isChatOpen ? '✕' : '💬'}
       </div>
@@ -110,7 +110,8 @@ function App() {
                 padding: '10px 15px',
                 borderRadius: msg.role === 'user' ? '15px 15px 0 15px' : '15px 15px 15px 0',
                 fontSize: '0.9rem',
-                lineHeight: '1.4'
+                lineHeight: '1.4',
+                boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
               }}>
                 {msg.text}
               </div>
@@ -125,13 +126,24 @@ function App() {
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
             />
-            <button className="btn-primary" onClick={handleSendMessage} style={{ padding: '5px 15px', borderRadius: '15px' }}>Send</button>
+            <button className="btn-primary" onClick={handleSendMessage} style={{ padding: '5px 15px', borderRadius: '15px' }}>
+              Send
+            </button>
           </div>
         </div>
       )}
 
-      <footer style={{ padding: '24px', textAlign: 'center', color: 'var(--text-secondary)', borderTop: '1px solid var(--surface-border)', marginTop: 'auto' }}>
-        <p>Built by <a href="https://x.com/illonashanum" target="_blank" rel="noopener noreferrer" className="footer-link">illonashanum</a>, powered by <a href="https://x.com/shelbyserves" target="_blank" rel="noopener noreferrer" className="footer-link">Shelby</a></p>
+      <footer style={{ 
+        padding: '24px', 
+        textAlign: 'center', 
+        color: 'var(--text-secondary)', 
+        borderTop: '1px solid var(--surface-border)', 
+        marginTop: 'auto' 
+      }}>
+        <p>
+          Built by <a href="https://x.com/illonashanum" target="_blank" rel="noopener noreferrer" className="footer-link">illonashanum</a>, 
+          powered by <a href="https://x.com/shelbyserves" target="_blank" rel="noopener noreferrer" className="footer-link">Shelby</a>
+        </p>
       </footer>
     </>
   );
