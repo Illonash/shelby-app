@@ -239,3 +239,29 @@ div[class*="dropzone"] svg {
   border-radius: 20px;
   outline: none;
 }
+/* Animasi berdenyut untuk Shelby Pulse */
+@keyframes pulse-purple {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(183, 148, 244, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(183, 148, 244, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(183, 148, 244, 0); }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #b794f4;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  animation: pulse-purple 2s infinite;
+}
+
+.intelligence-status {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace; /* Memberikan kesan tech/coding */
+}
