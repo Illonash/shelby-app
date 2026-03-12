@@ -2,6 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import WalletConnect from './components/WalletConnect';
 import FileUpload from './components/FileUpload';
 
+// 1. IMPOR LOGO KAMU DI SINI
+// Pastikan file 'shelby-logo.png' ada di dalam folder 'src'
+import shelbyLogo from './shelby-logo.png'; 
+
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -26,7 +30,6 @@ function App() {
     setTimeout(() => {
       let botResponse = "I'm here to help! Feel free to ask me anything about storing your files on our decentralized network.";
       
-      // Logika Jawaban Shelby (Fokus pada Storage & Wallet)
       if (question.includes("hello") || question.includes("hi")) {
         botResponse = "Hello! Ready to secure your files today?";
       } else if (question.includes("shelby")) {
@@ -47,7 +50,29 @@ function App() {
     <>
       <header style={{ padding: '20px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--surface-border)', background: 'rgba(255, 240, 246, 0.8)', backdropFilter: 'blur(10px)', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'var(--gradient-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '20px', color: 'white', boxShadow: '0 4px 14px 0 rgba(255, 126, 182, 0.39)' }}>S</div>
+          
+          {/* --- BAGIAN LOGO YANG DIPERBARUI (MENGGANTI HURUF S) --- */}
+          <div style={{ 
+            width: '40px', 
+            height: '40px', 
+            borderRadius: '10px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            overflow: 'hidden' // Agar gambar tidak keluar dari kotak jika ada border-radius
+          }}>
+            <img 
+              src={shelbyLogo} 
+              alt="Shelby Logo" 
+              style={{ 
+                width: '100%',     /* Memaksa lebar gambar jadi 40px */
+                height: '100%',    /* Memaksa tinggi gambar jadi 40px */
+                objectFit: 'contain' /* Memastikan gambar tidak gepeng, proporsi tetap terjaga */
+              }} 
+            />
+          </div>
+          {/* ------------------------------------------------------ */}
+
           <h1 style={{ fontSize: '24px', margin: 0 }} className="text-gradient">Shelby App</h1>
         </div>
         <WalletConnect />
