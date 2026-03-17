@@ -2,10 +2,6 @@
 
 **Shelby App** is a next-generation decentralized file storage platform that merges blockchain security with artificial intelligence. Designed with a sleek, modern aesthetic, Shelby ensures your data remains secure, private, and effortlessly managed through a smart, user-centric interface.
 
-<p align="center">
-  <img src="./src/assets/shelby-logo.png" width="120" alt="Shelby Logo">
-</p>
-
 ## Why Shelby?
 
 Unlike traditional cloud storage, Shelby gives you full sovereignty over your data using Web3 technology, supported by an intelligent assistant that guides you through every step of the process.
