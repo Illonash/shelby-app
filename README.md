@@ -33,3 +33,11 @@ You can access the live version of the application here:
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/Illonash/shelby-app.git](https://github.com/Illonash/shelby-app.git)
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+
+3. **Run the application:**
+   ```bash
+   npm run dev
